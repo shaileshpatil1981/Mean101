@@ -23,10 +23,14 @@ var Meow = mongoose.model('Meow', {
 		newMeow.save(function(err){
 			return res.send("Added Successfully");
 	});
-  
+  });
 
-
+app.put('/meows/remove', function(req, res, next){	
+var meowId=req.body.meow._id;		
+		Meow.remove({_id: meowId}, function(err){
+			return res.send("Deleted Successfully");
 	});
+});
 
 app.listen(4000, function () {
   console.log('Example : Shailesh app listening on port 4000!')
