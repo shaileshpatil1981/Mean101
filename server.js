@@ -32,6 +32,19 @@ var meowId=req.body.meow._id;
 	});
 });
 
+var User=mongoose.model('User', { 
+ username: String, password: String  });
+
+ app.post('/users', function(req, res, next){		
+			var newUser= new User({
+				username: req.body.username,
+				password: req.body.password
+			});
+			newUser.save( function(err){
+			return res.send();
+	});		
+	}) ;	
+
 app.listen(4000, function () {
   console.log('Example : Shailesh app listening on port 4000!')
 });

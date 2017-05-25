@@ -47,7 +47,16 @@ app.config(function($routeProvider, $locationProvider) {
 
 app.controller('SignupController', function($scope,$http){
 	
+	$scope.submitSignup=function(){
+var newUser= {
+	username: $scope.username,
+	password: $scope.password
+};		$http.post('/users',newUser).then(function(){
+				alert('Success');
+			});
+	};	
 	console.log('You are on the Signup Page');
+
 });
 	</script>
 </head>
